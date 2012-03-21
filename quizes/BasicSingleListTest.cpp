@@ -1,5 +1,5 @@
 #include <iostream>
-#include "SinglyLinkedList.h"
+#include <SinglyLinkedList.h>
 #include <map>
 
 using namespace std;
