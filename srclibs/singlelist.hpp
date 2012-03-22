@@ -59,7 +59,7 @@ public:
 	virtual void pushEnd(Node<T> *newNode) = 0;
 	virtual void pushNodeAtPos(Node<T> *newNode, int pos) = 0;
 
-	void destroyList();
+	void destroyList(void);
 
 	//void copyList(const LinkedList<T>& otherList);
 
@@ -81,7 +81,7 @@ LinkedList<T>::~LinkedList(void) {
 }
 
 template <class T>
-LinkedList<T>::destroyList() {
+void LinkedList<T>::destroyList(void) {
 	Node<T> *tmpNode;
 
 	while(head_ != NULL) {

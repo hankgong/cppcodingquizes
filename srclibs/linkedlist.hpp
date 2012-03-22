@@ -33,11 +33,13 @@ template <class T>
 struct Node {
 	T data;
 	Node<T> *next;
+	Node(T value) : data(value), next(NULL) {}
+	Node() : next(NULL) {}
 };
 
 template <class T>
 class LinkedList {
-protected:
+public:
 
 	Node<T> *head_;
 	int count_;
@@ -45,7 +47,7 @@ protected:
 public:
 
 	LinkedList(void): head_(NULL), count_(0) {}
-	virtual ~LinkedList(void);
+	~LinkedList(void);
 
 	int length(void) const;
 	void printList(void) const;
@@ -55,11 +57,11 @@ public:
 	virtual void insertEnd(T data) = 0;
 	virtual void insertValueAtPos(T data, int pos) = 0;
 
-	virtual void pushFront(Node<T> *newNode) = 0;
-	virtual void pushEnd(Node<T> *newNode) = 0;
-	virtual void pushNodeAtPos(Node<T> *newNode, int pos) = 0;
+	//virtual void pushFront(Node<T> *newNode) = 0;
+	//virtual void pushEnd(Node<T> *newNode) = 0;
+	//virtual void pushNodeAtPos(Node<T> *newNode, int pos) = 0;
 
-	void destroyList();
+	void destroyList(void);
 
 	//void copyList(const LinkedList<T>& otherList);
 
@@ -81,7 +83,7 @@ LinkedList<T>::~LinkedList(void) {
 }
 
 template <class T>
-LinkedList<T>::destroyList() {
+void LinkedList<T>::destroyList(void) {
 	Node<T> *tmpNode;
 
 	while(head_ != NULL) {
@@ -106,7 +108,7 @@ int LinkedList<T>::length(void) const {
 }
 
 template <class T>
-void printList(void) const {
+void LinkedList<T>::printList(void) const {
 	Node<T> *itrNode;
 
 	while(itrNode != NULL) {
@@ -118,7 +120,7 @@ void printList(void) const {
 }
 
 template <class T>
-void printNodeAtPos(int pos) const {
+void LinkedList<T>::printNodeAtPos(int pos) const {
 	Node<T> *itrNode;
 	int itrCount = 0;
 
