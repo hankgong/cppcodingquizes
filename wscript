@@ -9,3 +9,5 @@ def build(bld):
 	bld.program(source='Graph/main.cpp', target='Graph/main')
 	bld.program(source='Tree/printTree.cpp', target='Tree/printTree')
 
+	#bld.program(source='quizes/BasicSingleListTest.cpp', target='basicsinglelisttest', includes=['srclibs'])
+	#bld.program(source='quizes/singlelisttest.cpp', target='singlelisttest', includes=['srclibs'])
